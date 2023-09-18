@@ -284,10 +284,18 @@ while (true) {
 
 console.log(count1);
 
+
+// do {
+//     n /= 2;
+//     count1++;
+// } while (Number.isInteger(n))
+
+//do we using when we need 0 to be returned (123.4)
+//we useng while when we dont know how many iteration needed
  
 
 // WORKING WITH STRINGS
-// STRING ENCODING
+// String encoding
 
 
 
@@ -340,13 +348,26 @@ console.log(
 const myString = 'Hello, world! \nIt \'s JavaScript!';
 console.log(myString)
 
+//to strings 
+const x23 = 12345;
+
+console.log(x23);
+
+console.log(
+    x23.toString(),
+    '' + x23,
+    `${x23}`,
+    String(x23).length,
+);
+
+
 
 //JAVASCRIPT BASIC EXTENDED
 // REST ARGUMENTS
 
 'use strict';
 
-function sum(a, b =   0, ...args) {
+function sum(a, b =  0, ...args) {
     console.log(a, b, args.length );
 }
 
@@ -358,8 +379,8 @@ sum();
 
 'use strict';
 
-function sum(a = 0, b = 0, ...args) {
-    console.log(args);
+function sum(a = 0, b = 0, ...args1) {
+    console.log(args1);
 
     return a + b;
 }
@@ -370,24 +391,24 @@ console.log(
     sum(),
 );
 
-function sum(a = 0, b = 0, ...args) {
-    console.log(args);
+function sum(a = 0, b = 0, ...args1) {
+    console.log(args1);
 
     return a + b;
 }
 
-let operation = function(a = 0, b = 0, args) {
-    console.log(args);
+let operation = function(a = 0, b = 0, args1) {
+    console.log(args1);
 
     return a + b;
 };
-let operation2 = (a = 0, b = 0, ...args) => {
-    console.log(args);
+let operation2 = (a = 0, b = 0, ...args1) => {
+    console.log(args1);
 
     return a + b;
 };
 
-let operation3 = (a = 0, b = 0, ...args) => a + b;
+let operation3 = (a = 0, b = 0, ...args1) => a + b;
 let operation4 = a => a + 10;
 
 console.log(
@@ -768,3 +789,18 @@ for (const entry of Object.entries(user56)) {
 //         }
 //     }
 // }
+
+
+
+// function restoreNames(users) {
+//     const key = 'firstName';
+  
+//     for (const user of users) {
+//       if (!user[key] || user[key] === undefined) {
+//         const fullName = user.fullName;
+//         const fullNameParts = fullName.split(' ');
+  
+//         user[key] = fullNameParts[0];
+//       }
+//     }
+//   }
