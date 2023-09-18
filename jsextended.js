@@ -379,8 +379,8 @@ sum();
 
 'use strict';
 
-function sum(a = 0, b = 0, ...args1) {
-    console.log(args1);
+function sum(a = 0, b = 0, ...args) {
+    console.log(args);
 
     return a + b;
 }
@@ -391,24 +391,24 @@ console.log(
     sum(),
 );
 
-function sum(a = 0, b = 0, ...args1) {
-    console.log(args1);
+function sum(a = 0, b = 0, ...args) {
+    console.log(args);
 
     return a + b;
 }
 
-let operation = function(a = 0, b = 0, args1) {
-    console.log(args1);
+let operation = function(a = 0, b = 0, args) {
+    console.log(args);
 
     return a + b;
 };
-let operation2 = (a = 0, b = 0, ...args1) => {
-    console.log(args1);
+let operation2 = (a = 0, b = 0, ...args) => {
+    console.log(args);
 
     return a + b;
 };
 
-let operation3 = (a = 0, b = 0, ...args1) => a + b;
+let operation3 = (a = 0, b = 0, ...args) => a + b;
 let operation4 = a => a + 10;
 
 console.log(
@@ -446,7 +446,7 @@ switch (count4) {
     default:
         console.log('Many');
 }
-
+//if we dont have any checks we can use switch case method
 
 
 function getName(count4) {
@@ -501,7 +501,7 @@ function getName(count6) {
 
 
 //TYPE CONVERSION
-//EXPLICIT TYPE CASTING  
+//Explicit type casting
 
 'use strict';
 
@@ -608,6 +608,7 @@ console.log(
  
 // operator || first не порожнє значення
 // operatot && first порожнє значення
+// AND have a greater priority than OR
 
 console.log(
     0 || null || 12 || false
@@ -699,7 +700,7 @@ console.log(user);
 const user0 = {
     firstName: 'Oleg',
     age19: 23,
-    isMarried: true,
+    isMarried: undefined,
 };
 
 const key = 'firstName';
@@ -720,15 +721,15 @@ if (key in user0) {
     console.log('Property exists');
 }
 
-// if (Object.hasOws(user0, 'age')) {
+// if (Object.hasOws(user0, 'age19')) {
 //     console.log('Property exists');
 // }
-
+//Object.hasOwn перевіряє власну, а не успатковану властивість
 
 
 //OBJECTS ITERATION
 
-'use strict';
+'use strict'; 
 
 const user56 = {
     firstName56: 'Oleg',
@@ -804,3 +805,34 @@ for (const entry of Object.entries(user56)) {
 //       }
 //     }
 //   }
+
+
+//Count boxes task
+'use strict'
+
+function countBoxes(boxes) {
+    const result = {};
+
+    for (const type of boxes) {
+        if (!result[type]) {
+            result[type] = 0;
+        }
+
+        result[type]++;
+    }
+
+    return result;
+}
+
+
+//get robot schema
+
+function getRobotSchema(robot) {
+    const schema = {};
+     
+    for (const key in robot) {
+        schema[key] = typeof robot[key]
+    }
+
+    return schema;
+}
