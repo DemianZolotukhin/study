@@ -11,3 +11,15 @@ function processArg(num) {
 // Only change code below this line
 processed = processArg(7);
 console.log(processed);
+
+let word = 'lengthOfPenis' 
+  const result = [];
+
+  for (let i = 0; i < word.length; i++) {
+    const part = word.slice(i) + word.slice(0, 1);
+
+    result.push(part.toUpperCase());
+  }
+
+  return result;
+
