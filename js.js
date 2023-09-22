@@ -768,3 +768,35 @@ for (const entry of Object.entries(user56)) {
 //         }
 //     }
 // }
+
+
+//code camp
+const x22 = [["hello"], ['hi'], [24], [true]];
+const unshifttry = x22.shift()
+const numX = 5;
+x22.unshift(numX);
+console.log(x22);
+
+const arr = [
+    [1, 2], [3, 4], [5, 6]
+  ];
+ 
+  debugger; 
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      console.log(arr[i][j]);
+    }
+  }
+
+
+  
+  function getAlco(year = 20, money = 15) {
+    const getBeer = year >= 18;
+    const enoughMoney = money >= 10;
+    let readyForTrip = getBeer && enoughMoney;
+    if (getBeer && enoughMoney === true) {
+      return 'LET\'S GO!'
+    }
+  }
+  console.log(getAlco());

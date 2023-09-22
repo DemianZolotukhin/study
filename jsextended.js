@@ -721,7 +721,7 @@ if (key in user0) {
     console.log('Property exists');
 }
 
-// if (Object.hasOws(user0, 'age19')) {
+// if (Object.hasOwn(user0, 'age19')) {
 //     console.log('Property exists');
 // }
 //Object.hasOwn перевіряє власну, а не успатковану властивість

@@ -4,22 +4,18 @@ console.log(x);
 
 let processed = 0;
 
-function processArg(num) {
-  return (num + 8) / 5;
-}
-
-// Only change code below this line
-processed = processArg(7);
-console.log(processed);
-
-let word = 'lengthOfPenis' 
-  const result = [];
-
-  for (let i = 0; i < word.length; i++) {
-    const part = word.slice(i) + word.slice(0, 1);
-
-    result.push(part.toUpperCase());
+function getAlco(year, money) {
+  const getBeer = year >= 18;
+  const enoughMoney = money >= 10;
+  let readyForTrip = getBeer && enoughMoney;
+  if (getBeer && enoughMoney === true) {
+    return 'LET\'S GO!'
+  } else {
+    return 'YOUNG SHIT!'
   }
+}
+const year1 = 19;
+const money1 = 20;
 
-  return result;
+console.log(getAlco(year1, money1));
 
