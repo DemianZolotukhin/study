@@ -201,3 +201,38 @@ function printInfo({
 
     console.log(message6);
 }
+
+function generateChart(statistics) {
+    const diagram = {};
+    let total = 0;
+
+    debugger;
+  
+    for (const value of Object.values(statistics)) {
+        if (typeof value === 'number') {
+          total += value;
+        }
+    }
+  
+    for (const robotType in statistics) {
+      const quantity = statistics[robotType];
+      const diagramAngle = 360 * quantity / total;
+  
+      diagram[robotType] = Math.round(diagramAngle);
+    }
+  
+    return diagram;
+  }
+  
+  const objRobot = {
+    cleaner: 2,
+    driver: 4,
+    washer: 14,
+    runner: 4,
+    builed: 8,
+    musician: 'bad',
+    painter: null,
+    greeter: undefined,
+  }
+
+  console.log(generateChart(objRobot));
