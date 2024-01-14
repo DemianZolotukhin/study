@@ -236,3 +236,38 @@ function generateChart(statistics) {
   }
 
   console.log(generateChart(objRobot));
+
+  function transformState(state, actions) {
+    for (const action of actions) {
+      switch (action.type) {
+        case 'addProperties':
+          addProperties(state, action.extraData);
+          break;
+  
+        case 'removeProperties':
+          removeProperties(state, action.keysToRemove);
+          break;
+  
+        case 'clear':
+          clearProperties(state);
+          break;
+      }
+    }
+  }
+  
+  function addProperties(state, toAdd) {
+    Object.assign(state, toAdd);
+  }
+  
+  function removeProperties(state, toRemove) {
+    for (const key of toRemove) {
+      delete state[key];
+    }
+  }
+  
+  function clearProperties(state) {
+    for (const key in state) {
+      delete state[key];
+    }
+  }
+  
