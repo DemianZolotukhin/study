@@ -422,9 +422,139 @@ const customer = {
   vehicle: {
     maxTankCapacity: 40,
     fuelRemains: 8,
-  }};
+  }
+};
 
 console.log(fillTank(customer, 28));
 
 
 //toFixed повертає рядкове значення(потрібно перетворити в цифри)
+
+
+//Objects Methods
+'use strict';
+
+const bob0 = {
+  firstName: 'Bob',
+  lastName: 'Smith',
+  age: 30,
+
+  print: printInfo5,
+  print2(age) {
+
+  }
+};// За допомогою додавання методів до об'єктів, ми підказуємо які в цих об'єктів є можливості
+
+// printInfo5(bob0); // у випадку простого виклику ми отримаємо undefined/
+bob0.print();
+
+function printInfo5(user) {
+  const { firstName, lastName, age = 0 } = this; // this означає, викликати об'єкто що стоїть перед крапкою при виклику
+  const message = `!!!${firstName} ${lastName} is ${age}!!!`;
+
+  console.log(message);
+}
+// З іншого боку функція є більш гнучкою, за допомогою передачі параметрів, я можу виконувати одні і ті самі дії з абсолютно різними параметрами
+
+
+//Computed Properties
+
+'use strict';
+
+const admin = {
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  },
+
+  set fullName(value) {
+    const parts = value.split(' ');
+
+    if (parts.length < 2) {
+      return;
+    }
+
+    this.firstName = parts[0];
+    this.lastName = parts[1];
+  },
+
+  firstName: 'Sergei',
+  lastName: 'Sternenko',
+
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+};
+
+congratulate(admin);
+admin.fullName = 'Andrey Donbas';
+congratulate(admin);
+
+function congratulate(user) {
+  console.log(`Hi, ${user.fullName}`);
+}
+
+console.log(admin.firstName);
+
+// get дозволяє нам не змінювати використання об'єкта якщо в нас змінилася логіка зберігання данних
+// get дозволяє нам конструювати властивості, які нам потрібно обчислювати
+
+// set дозволяє нам перевіряти якісь умови, коли ми намагаємося присвоїти значення
+// set це розумний спосіб як ми можемо додати перевірки під час встановлення значення
+// при цьому ми використовуємо синтаксис присвоювання
+
+
+//Sometimes we want a property value to be calculated when we read it. 
+//For this purpose, we have computed properties in JavaScript. They can be created using the get keyword and are called getters:
+
+// const user = {
+//   firstName: 'John',
+//   lastName: 'Smith',
+//   age: 25,
+  
+//   get fullName() {
+//     return `${this.firstName} ${this.lastName}`;
+//   },
+// };
+
+// console.log(user.fullName); // John Smith
+
+
+// setter should accept exactly 1 parameter
+//If we want to run some logic when we assign a new value to a property, setters can help. They are created by the set keyword.
+
+// const user = {
+//   firstName: 'John',
+//   lastName: 'Smith',
+//   age: 25,
+  
+//   get userInfo() {
+//      return `${this.firstName} ${this.lastName} is ${this.age}`;
+//   },
+  
+//   set fullName(value) {
+//     const index = value.indexOf(' ');
+//     const firstName = value.slice(0, index);
+//     const lastName = value.slice(index + 1);
+    
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//   },
+// };
+
+// user.fullName = 'Mike Brown';
+
+// console.log(user.userInfo); // Mike Brown is 25
+
+
+
+// With setters, you can easily validate data you want to set to object property. For example, you can check the data type:
+
+
+
+// set fullName(value) {
+//   if (typeof value !== 'string') {
+//     return;
+//   }  
+    
+//   // the rest of the code
+// }
