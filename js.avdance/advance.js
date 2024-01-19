@@ -602,8 +602,16 @@ const numbers4 = [0, 1, 2, 3, 4];
 console.log(numbers4);
 
 numbers4[numbers4.length] = 99; 
-numbers4[numbers4.length] = 99; 
-numbers4[numbers4.length] = 99; 
 numbers4.push(100, 101, 102);
+numbers4.pop() //Метод pop не приймає жодних аргументів, а просто видаляє останній елемент масиву.
+//Можна отримати видалений елемент за допомогою присвоєння deletedElement = numbers4.pop()
 
+numbers4.unshift(100, 101, 102); // Метод unshift додає елементи на початку
+numbers4.shift() // Метод shift Видаляє перший елемент масиву
+//Можна отримати видалений елемент за допомогою присвоєння deletedElement = numbers4.shift()
+//На практиці найчастіше використовується метод push, всі інші рідше
 console.log(numbers4);
+
+
+
+//How to find an element in array
