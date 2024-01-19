@@ -615,3 +615,40 @@ console.log(numbers4);
 
 
 //How to find an element in array
+const wordsArr1 = ['first', 'name', 'and', 'last', 'name'];
+
+console.log(wordsArr1);
+
+console.log(
+  wordsArr1.includes('and'), //true
+  wordsArr1.includes('and', 3), //false //друге значення це індекс з якого ми хочемо почати
+  wordsArr1.includes('a'), //false //ми шукаємо елемент за точним співпадінням
+);
+
+console.log(
+  wordsArr1.indexOf('name'), //1 
+  wordsArr1.indexOf('name', 3), //4 //перше входження відбувається по індексу 4
+);
+
+console.log(
+  wordsArr1.lastIndexOf('name'), //4 
+  wordsArr1.lastIndexOf('name', 3), //1 //перше входження відбувається за індексом 1(починаємо з кінця)
+);
+
+
+
+//Split, join a slice methods
+
+const phraseEx =  'My name is demian';
+const wordsEx = phraseEx.split(' ', 3); // Split дозволяє розрізати рядок за будь якими розділювачами
+// Якщо потрібно отримати тільки перші три слова, то можна додати обмеження
+
+console.log(wordsEx);
+
+// Якщо потрібно перетворити масив на рядок, це можна зроби за допомогою метома join
+console.log(wordsEx.join(' ')); // Якщо використати '' без пробіла то ми отримаємо склеїний рядок
+
+console.log(
+  wordsEx.slice(1, -1) // Якщо викликати слайс без параметру, то ми отримаємо точну копію масиву
+  // В данному випадку ми хочемо отримати всі елементи крім першого і останнього
+);
