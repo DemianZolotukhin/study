@@ -558,3 +558,52 @@ console.log(admin.firstName);
     
 //   // the rest of the code
 // }
+
+
+// ARRAY METHODS
+// How to create an array
+'use strict';
+const wordsArr = ['one', 'two', 'three'];
+const numbersArr = [1, 3, 1, 5, 2, 1, 4];
+
+console.log(wordsArr, numbersArr);
+console.log([]);
+console.log(['Misha', 38, true]); // Кортеж(англ.tuple);
+
+const numbers2 = new Array(1, 3, 1, 5, 2, 1, 4); //Створення нових масивів;
+const numbers3 = Array(1, 3, 1, 5, 2, 1, 4); //Створення нових масивів;
+
+console.log(numbers2, numbers3);
+
+const userName = 'Kandratiev';
+
+console.log(
+  userName.split(''),//Розрізає цей рядок на окремі літери(масив створює) ['K', 'a', 'n', 'd', 'r', 'a', 't', 'i', 'e', 'v']
+  [...userName],//Спред оператор бере з рядка окремі букви і вставляє в середину масиву(так можна робити з рядком, або з інакшим масивом) ['K', 'a', 'n', 'd', 'r', 'a', 't', 'i', 'e', 'v']
+  Array.from(userName),//З рядка створюється масив ['K', 'a', 'n', 'd', 'r', 'a', 't', 'i', 'e', 'v']
+);
+
+for (let i = 0; i < wordsArr.length; i++) {
+  console.log(wordsArr[i]);
+}
+
+for (const n of numbersArr) {
+  console.log(n);
+}
+
+
+
+//How to modify an array
+
+'use strict';
+
+const numbers4 = [0, 1, 2, 3, 4];
+
+console.log(numbers4);
+
+numbers4[numbers4.length] = 99; 
+numbers4[numbers4.length] = 99; 
+numbers4[numbers4.length] = 99; 
+numbers4.push(100, 101, 102);
+
+console.log(numbers4);
