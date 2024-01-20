@@ -727,9 +727,9 @@ const bib = {
 
 const song = 'one two three four five';
 
-printArr(song.split(' '));
+printArr(123, song.split(' '));
 
-function printArr([x, , y, ...otherWords]) {
+function printArr(a, [x, , y, ...otherWords]) { //деструктурування можна зробити одразу в параметрі
   // const [x, , y, ...otherWords] = words;
 
   console.log(otherWords);
@@ -744,3 +744,28 @@ function printObjectbib(user) {
 }
 
 
+// Елемент масиву можна отримати за його індексом:
+
+// const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+// console.log(
+//   weekDays[0], // 'Sunday'
+//   weekDays[1], // 'Monday'
+//   weekDays[6], // 'Saturday'
+  
+//   // якщо індекс занадто великий, отримуємо undefined
+//   weekDays[10], // undefined
+  
+//   // чи від'ємний
+//   weekDays[-2], // undefined
+// );
+
+
+
+// Також можна скористатися методом at(). Він працює так само, як arr[index] для додатніх індексів, але обробляє негативні як arr[arr.length - index]. Наприклад:
+
+// console.log(
+//   weekDays.at(-1), // 'Saturday'
+//   weekDays.at(-2), // 'Friday'
+//   weekDays.at(1), // 'Monday'
+// );
