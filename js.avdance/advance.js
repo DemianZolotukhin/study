@@ -712,3 +712,35 @@ result8.push(999);
 
 console.log(numbers8);
 console.log(result8);
+
+
+//Array Destructuring
+
+'use strict';
+ 
+const bib = {
+  name: 'Bib',
+  surname: 'Bibos',
+  age: 33,
+  isMarried: true,
+};
+
+const song = 'one two three four five';
+
+printArr(song.split(' '));
+
+function printArr([x, , y, ...otherWords]) {
+  // const [x, , y, ...otherWords] = words;
+
+  console.log(otherWords);
+}
+
+printObjectbib(bib)
+
+function printObjectbib(user) {
+  const { name, age: x, ...props } = user;
+
+  console.log(props);
+}
+
+
