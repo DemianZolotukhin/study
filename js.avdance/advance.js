@@ -689,3 +689,26 @@ console.log('---------');
 
 console.log(numbers7);
 console.log(result7);
+
+
+
+//Array copying
+'use strict';
+
+const numbers8 = [1, 2, 3, 4, 5];
+// const result8 = numbers8.slice();
+// const result8 = numbers8.concat();
+// const result8 = Array.from(numbers8);
+// const result8 = Array.from('qwertyu');
+const result8 = [
+  ...numbers8.slice(0, 2),
+  100,
+  200,
+  300,
+  ...numbers8.slice(2), //за допомогою спред оператора ми можемо не тільки скопіювати масив, а і конструювати якийсь новий
+];
+
+result8.push(999);
+
+console.log(numbers8);
+console.log(result8);
