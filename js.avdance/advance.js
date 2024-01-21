@@ -796,3 +796,25 @@ function printObjectbib(user) {
 //   // останні 3 елементи
 //   numbers.slice(-3), // [7, 8, 9]
 // );
+
+
+//Метод reverse()
+const numbers = [1, 2, 3, 4, 5];
+
+debugger;
+
+// Додаємо метод reverse до об'єкта Array
+numbers.reverse = function() {
+  for (let i = 0; i < this.length / 2; i++) {
+    const value = this[i];
+    this[i] = this[this.length - 1 - i];
+    this[this.length - 1 - i] = value;
+  }
+  return this;
+};
+
+// Викликаємо метод reverse для обертання масиву
+console.log(numbers.reverse());
+
+// Результат: змінений масив
+console.log(numbers);
