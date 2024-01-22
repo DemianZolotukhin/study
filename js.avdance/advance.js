@@ -853,3 +853,47 @@ const searchRobot = (robot, workPlaces) => {
     }
   }
 };
+// В цьому завданні оператор includes замостійно перебирає масив
+
+
+
+function sortBooks(shelves) {
+  const books = [];
+
+  for (const shelve of shelves) {
+    books.push(...shelve);
+  }
+
+  return books.sort();
+}
+// У цьому ми з масивів в масиві створили один масив і відсортували їх
+
+
+
+
+const numbers41 = [5, 6, 1, 4, 2, 5]
+
+numbers41.lastIndexOf = function(param, fromIndex = this.length - 1) {
+  let index = fromIndex;
+
+  debugger;
+
+  if (index < 0) {
+    index += this.length;
+
+    if (index < 0) {
+      index = 0;
+    }
+  }
+
+  for (let i = index; i >= 0; i--) {
+    if (this[i] === param) {
+      return i;
+    }
+  }
+
+  return -1;
+};
+
+
+console.log(numbers41.lastIndexOf(1, 3)) 
