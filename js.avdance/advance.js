@@ -801,7 +801,7 @@ function printObjectbib(user) {
 //Метод reverse()
 const numbers = [1, 2, 3, 4, 5];
 
-debugger;
+// debugger;
 
 // Додаємо метод reverse до об'єкта Array
 numbers.reverse = function() {
@@ -818,3 +818,38 @@ console.log(numbers.reverse());
 
 // Результат: змінений масив
 console.log(numbers);
+
+
+const numbers43 = [5, 6, 1, 4, 2, 5];
+numbers43.indexOf = function(param, fromIndex = 0) {
+
+  // debugger;
+
+  let index = fromIndex;
+
+  if (index < 0) {
+    index += this.length;
+  }
+
+  if (index < 0) {
+    index = 0;
+  }
+
+  for (let i = index; i < this.length; i++) {
+    if (this[i] === param) {
+      return i;
+    }
+  }
+
+  return -1;
+};
+
+console.log(numbers43.indexOf(4, -1))
+
+const searchRobot = (robot, workPlaces) => {
+  for (const place of workPlaces) {
+    if (place.staff.includes(robot.name)) {
+      return place.name;
+    }
+  }
+};
