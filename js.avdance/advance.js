@@ -897,3 +897,25 @@ numbers41.lastIndexOf = function(param, fromIndex = this.length - 1) {
 
 
 console.log(numbers41.lastIndexOf(1, 3)) 
+
+
+
+numbers.includes = function(param, fromIndex = 0) {
+  let index = fromIndex;
+
+  if (index < 0) {
+    index += this.length;
+  }
+
+  if (index < 0) {
+    index = 0;
+  }
+
+  for (let i = index; i < this.length; i++) {
+    if (this[i] === param) {
+      return true;
+    }
+  }
+
+  return false;
+};
