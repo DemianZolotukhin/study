@@ -713,3 +713,27 @@ function countMatchingSocks(colors) {
 const socks = ['red', 'blue', 'red', 'green', 'blue', 'red', 'blue', 'yellow'];
 const pairs = countMatchingSocks(socks);
 console.log(pairs); 
+
+
+const number69 = [2, 4, 6, 3, 9, 5, 3];
+
+function countNextSmaller(numbers69) {
+  const result = [];
+  debugger;
+
+  for (let i = 0; i < numbers69.length; i++) {
+    let smallerCount = 0; // smallerCount обнуляється тут перед кожним початком нової ітерації
+
+    for (let j = i + 1; j < numbers69.length; j++) {
+      if (numbers69[i] > numbers69[j]) {
+        smallerCount++;
+      }
+    }
+
+    result.push(smallerCount);
+  }
+
+  return result;
+}
+
+console.log(countNextSmaller(number69));
