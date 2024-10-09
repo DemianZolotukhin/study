@@ -552,9 +552,28 @@ const myRecorder = creatRecorder('Demian');
 myRecorder('word', 'sosabma', 'window');
 yourRecorder('salut');
 yourRecorder('hohol');
+
 yourRecorder.clear();
+
 yourRecorder('ebany');
 myRecorder('of the world');
 
 yourRecorder();
 myRecorder();
+
+function makePackage(connectionsLimit) { // 4
+  let remainingConnections = connectionsLimit;
+
+  return () => {
+    if (remainingConnections > 0) {
+      remainingConnections--;
+
+      return (`${remainingConnections} connections left`);
+    } else {
+      return 'You reached the connections limit!';
+    }
+  };
+}
+
+
+console.log(makePackage(4))
