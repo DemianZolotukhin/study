@@ -347,7 +347,7 @@ console.log(result);
 
 const wordsArr = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'];
 
-wordsArr.OnforEach = function(callback) {
+wordsArr.OnforEach = function (callback) {
   console.log(this);
 
   for (let i = 0; i < this.length; i++) {
@@ -356,3 +356,205 @@ wordsArr.OnforEach = function(callback) {
 }
 
 wordsArr.OnforEach((param) => console.log(`Hello people number ${param}`));
+
+const wordsArr2 = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'];
+
+const word2 = wordsArr2.map((word, index) => {
+  return { name: word, index };
+}).filter(({ name, index }) => name.length > index)
+  .find(({ name, index }) => name[index] === 'o')
+
+console.log(word2);
+let stringArr = 'abrakadabra'.split('').reduce((counter, char) => ({
+  ...counter,
+  [char]: (counter[char] || 0) + 1,
+}), {});
+
+console.log(stringArr);
+
+const complexStylesString = `
+  background-color:      #fff;
+-webkit-border-radius: 5px;
+  border-radius     : 5px;
+  border: 1px solid #e8e8e8;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  clear   : both       ;
+  cursor: pointer;
+  float: left;
+  font-family: inherit;
+      font-size: 14px;
+  font-weight: 400;
+  height: 42px;
+  line-height:    40px;
+  outline: 0;
+  padding-left    : 18px;
+  padding-right: 30px;
+  ;
+
+  ;
+  position: relative;
+
+
+  text-align: left !important;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+
+  white-space: nowrap;
+  width: auto;
+`;
+
+function revertCss(style) {
+  if (style.length === 0) {
+    return {};
+  }
+
+  // debugger;
+
+  const getArrayFromString = style.trim().split(';');
+
+  const formateString = getArrayFromString
+    .filter((arrString) => arrString.trim().length > 0)
+    .map(arrString => {
+      const [key, value] = arrString.split(':').map(part => part.trim());
+      return { [key]: value.split(', ').map(v => v.trim()).join(',') };
+    })
+  const outPutObj = { ...formateString };
+
+  return outPutObj
+  console.log(getArrayFromString)
+  console.log(formateString)
+}
+
+console.log(revertCss(complexStylesString))
+
+
+const people = [
+  { name: 'Carolus Haverbeke', father: 'Carel Haverbeke', mother: 'Maria van Brussel' },
+  { name: 'Emma de Milliano', father: 'Petrus de Milliano', mother: 'Sophia van Damme' },
+  { name: 'Laurentia Haverbeke', father: 'Jan Haverbeke', mother: 'Maria de Rycke' },
+  { name: 'Maria de Rycke', father: 'Frederik de Rycke', mother: 'Laurentia van Vlaenderen' },
+  { name: 'Carel Haverbeke', father: 'Pieter Antone Haverbeke', mother: 'Livina Sierens' },
+  { name: 'Elisabeth Haverbeke', father: 'Jan Haverbeke', mother: 'Maria de Rycke' },
+];
+
+function getPeopleWithChildren(people) {
+  return people.map(person => {
+    const children = people.filter(person2 => person.name === person2.father
+      || person.name === person2.mother);
+
+    return {
+      ...person,
+      children,
+    };
+  });
+}
+
+console.log(getPeopleWithChildren(people));
+
+console.log(window.Array);
+
+
+let a = 1;
+let f;
+let getB;
+
+if (true) {
+  let b = 2;
+
+  if (true) {
+    let c = 3;
+    f = function () {
+      console.log(c);
+    }
+  }
+
+  getB = function() {
+    console.log(b);
+  }
+}
+
+console.log(a);
+f()
+getB()
+
+
+let add;
+let getSum;
+
+if (true) {
+
+  let sum = 0;
+
+  add = function add(x) {
+    sum += x;
+    console.log(sum);
+  }
+
+  getSum = () => sum;
+}
+
+add(10);
+add(10);
+add(10);
+add(10);
+add(104364);
+add(-104364);
+console.log(getSum());
+
+const team = [];
+
+let firstFreeNum = 4;
+
+while (firstFreeNum <= 387) {
+  let current = firstFreeNum;
+
+  const player = () => {
+    console.log(current)
+  };
+
+  team.push(player);
+
+  firstFreeNum++;
+}
+
+team[0]();
+team[1]();
+team[2]();
+console.log(team);
+
+
+function creatRecorder(name) {
+  let words = [];
+
+  const recorder = (...args) => {
+    if (args.length === 0) {
+      console.log(name, words.join(' '));
+    } else {
+      words.push(...args);
+    }
+  }
+
+  recorder.clear = () => {
+    words = [];
+  }
+
+  return recorder;
+}
+
+const yourRecorder = creatRecorder('Friend');
+const myRecorder = creatRecorder('Demian');
+
+myRecorder('word', 'sosabma', 'window');
+yourRecorder('salut');
+yourRecorder('hohol');
+yourRecorder.clear();
+yourRecorder('ebany');
+myRecorder('of the world');
+
+yourRecorder();
+myRecorder();
